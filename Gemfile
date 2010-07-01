@@ -2,6 +2,8 @@ source 'http://rubygems.org'
 
 gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 
+gem 'ckeditor', :git => 'git://github.com/galetahub/rails-ckeditor.git', :branch => 'rails3'
+
 gem 'rails', '3.0.0.beta4'
 
 # Bundle edge Rails instead:
