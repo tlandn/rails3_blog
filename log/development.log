@@ -5881,3 +5881,185 @@ Started GET "/posts" for 127.0.0.1 at Thu Jul 01 13:52:11 +0700 2010
   [1m[35mSQL (0.9ms)[0m  UPDATE "users" SET "last_request_at" = '2010-07-01 06:52:11.597272', "updated_at" = '2010-07-01 06:52:11.598592' WHERE ("users"."id" = 1)
 Rendered posts/index.html.erb within layouts/application (340.6ms)
 Completed 200 OK in 412ms (Views: 332.3ms | ActiveRecord: 29.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Thu Jul 01 14:06:49 +0700 2010
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.9ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-01 06:56:49.772626')[0m
+  [1m[35mUser Load (24.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2010-07-01 07:06:49.978274', "updated_at" = '2010-07-01 07:06:49.979417' WHERE ("users"."id" = 1)
+Rendered posts/index.html.erb within layouts/application (318.0ms)
+Completed 200 OK in 363ms (Views: 301.1ms | ActiveRecord: 54.3ms)
+
+
+Started GET "/posts/7" for 127.0.0.1 at Thu Jul 01 14:06:54 +0700 2010
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mPost Load (0.8ms)[0m  SELECT "posts".* FROM "posts" WHERE ("posts"."id" = 7) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "comments" WHERE ("comments".post_id = 7)[0m
+Rendered comments/_comment.html.erb (0.0ms)
+Rendered comments/_form.html.erb (23.8ms)
+  [1m[35mSQL (0.7ms)[0m  SELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-01 06:56:55.145297')
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2010-07-01 07:06:55.365194', "updated_at" = '2010-07-01 07:06:55.366230' WHERE ("users"."id" = 1)[0m
+Rendered posts/show.html.erb within layouts/application (354.0ms)
+Completed 200 OK in 396ms (Views: 359.9ms | ActiveRecord: 10.4ms)
+
+
+Started POST "/user_session" for 127.0.0.1 at Thu Jul 01 14:07:08 +0700 2010
+  Processing by UserSessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"2vi5Z0mtc57cyxlc5+laJh1XTH2IEMJg8wjdSzBeLUQ="}
+  [1m[36mUser Load (4.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (1.2ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2010-07-01 07:07:08.474013', "updated_at" = '2010-07-01 07:07:08.474973' WHERE ("users"."id" = 1)[0m
+Redirected to http://localhost:3000/user_session/new
+Completed 302 Found in 123ms
+
+
+Started GET "/user_session/new" for 127.0.0.1 at Thu Jul 01 14:07:08 +0700 2010
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_errors.html.erb (1.2ms)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _render_template__865428095__625701198_0 at /home/lantra/work/rails3_blog/app/views/user_sessions/new.html.erb:3)
+  [1m[35mSQL (0.7ms)[0m  SELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-01 06:57:08.904506')
+Rendered user_sessions/new.html.erb within layouts/application (36.8ms)
+Completed 200 OK in 117ms (Views: 55.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Jul 01 14:07:15 +0700 2010
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (1.1ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mSQL (0.5ms)[0m  SELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-01 06:57:16.036011')
+Rendered posts/index.html.erb within layouts/application (144.3ms)
+Completed 200 OK in 334ms (Views: 151.9ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at Thu Jul 01 14:07:24 +0700 2010
+  Processing by PostsController#new as HTML
+Redirected to http://localhost:3000/user_session/new
+Completed 302 Found in 60ms
+
+
+Started GET "/user_session/new" for 127.0.0.1 at Thu Jul 01 14:07:24 +0700 2010
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_errors.html.erb (1.2ms)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _render_template__865428095__625857918_0 at /home/lantra/work/rails3_blog/app/views/user_sessions/new.html.erb:3)
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-01 06:57:24.621568')[0m
+Rendered user_sessions/new.html.erb within layouts/application (32.3ms)
+Completed 200 OK in 102ms (Views: 39.8ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/user_session" for 127.0.0.1 at Thu Jul 01 14:07:33 +0700 2010
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "login"=>"tlandn"}, "authenticity_token"=>"2vi5Z0mtc57cyxlc5+laJh1XTH2IEMJg8wjdSzBeLUQ="}
+  [1m[35mUser Load (5.2ms)[0m  SELECT "users".* FROM "users" WHERE (LOWER("users".login) = 'tlandn') LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "users" SET "current_login_at" = '2010-07-01 07:07:33.747323', "last_login_at" = '2010-07-01 02:52:31.166322', "last_request_at" = '2010-07-01 07:07:33.748154', "login_count" = 16, "updated_at" = '2010-07-01 07:07:33.750473' WHERE ("users"."id" = 1)[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 451ms
+
+
+Started GET "/posts" for 127.0.0.1 at Thu Jul 01 14:07:33 +0700 2010
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-01 06:57:34.195515')[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2010-07-01 07:07:34.260863', "updated_at" = '2010-07-01 07:07:34.261844' WHERE ("users"."id" = 1)
+Rendered posts/index.html.erb within layouts/application (181.9ms)
+Completed 200 OK in 224ms (Views: 188.3ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at Thu Jul 01 14:07:39 +0700 2010
+  Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2010-07-01 07:07:39.872315', "updated_at" = '2010-07-01 07:07:39.873282' WHERE ("users"."id" = 1)[0m
+Rendered posts/_errors.html.erb (1.2ms)
+Rendered posts/_form.html.erb (24.6ms)
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-01 06:57:39.966264')
+Rendered posts/new.html.erb within layouts/application (41.6ms)
+Completed 200 OK in 204ms (Views: 61.2ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/posts" for 127.0.0.1 at Thu Jul 01 14:07:51 +0700 2010
+  Processing by PostsController#create as HTML
+  Parameters: {"commit"=>"Create Post", "post"=>{"title"=>"1000000", "content"=>"<p>\r\n\tsdfaadfsdfdfsafsfasdfsdsdsd</p>\r\n"}, "authenticity_token"=>"2vi5Z0mtc57cyxlc5+laJh1XTH2IEMJg8wjdSzBeLUQ="}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2010-07-01 07:07:51.497555', "updated_at" = '2010-07-01 07:07:51.498451' WHERE ("users"."id" = 1)[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "posts" ("content", "created_at", "title", "updated_at", "user_id") VALUES ('<p>
+	sdfaadfsdfdfsafsfasdfsdsdsd</p>
+', '2010-07-01 07:07:51.551289', '1000000', '2010-07-01 07:07:51.551289', 1)
+Redirected to http://localhost:3000/posts/8
+Completed 302 Found in 169ms
+
+
+Started GET "/posts/8" for 127.0.0.1 at Thu Jul 01 14:07:51 +0700 2010
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE ("posts"."id" = 8) LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  SELECT COUNT(*) AS count_id FROM "comments" WHERE ("comments".post_id = 8)
+Rendered comments/_comment.html.erb (0.0ms)
+Rendered comments/_form.html.erb (25.0ms)
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-01 06:57:52.029930')[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2010-07-01 07:07:52.096609', "updated_at" = '2010-07-01 07:07:52.097595' WHERE ("users"."id" = 1)
+Rendered posts/show.html.erb within layouts/application (377.8ms)
+Completed 200 OK in 423ms (Views: 385.1ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Thu Jul 01 14:07:57 +0700 2010
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (1.1ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-01 06:57:57.462307')
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2010-07-01 07:07:57.529455', "updated_at" = '2010-07-01 07:07:57.530418' WHERE ("users"."id" = 1)[0m
+Rendered posts/index.html.erb within layouts/application (197.9ms)
+Completed 200 OK in 402ms (Views: 204.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/posts/6" for 127.0.0.1 at Thu Jul 01 14:18:25 +0700 2010
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts" WHERE ("posts"."id" = 6) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "comments" WHERE ("comments".post_id = 6)[0m
+  [1m[35mComment Load (0.6ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".post_id = 6)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE ("posts"."id" = 6) LIMIT 1[0m
+Rendered comments/_comment.html.erb (22.8ms)
+Rendered comments/_form.html.erb (17.6ms)
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-01 07:08:25.643883')
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (16.9ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2010-07-01 07:18:25.708681', "updated_at" = '2010-07-01 07:18:25.709648' WHERE ("users"."id" = 1)[0m
+Rendered posts/show.html.erb within layouts/application (232.3ms)
+Completed 200 OK in 441ms (Views: 221.5ms | ActiveRecord: 19.7ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Thu Jul 01 14:18:29 +0700 2010
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-01 07:08:29.731156')
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2010-07-01 07:18:29.793344', "updated_at" = '2010-07-01 07:18:29.794363' WHERE ("users"."id" = 1)[0m
+Rendered posts/index.html.erb within layouts/application (178.6ms)
+Completed 200 OK in 219ms (Views: 184.7ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/posts/7" for 127.0.0.1 at Thu Jul 01 14:18:31 +0700 2010
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE ("posts"."id" = 7) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) AS count_id FROM "comments" WHERE ("comments".post_id = 7)
+Rendered comments/_comment.html.erb (0.0ms)
+Rendered comments/_form.html.erb (23.7ms)
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-01 07:08:31.914726')[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2010-07-01 07:18:31.978671', "updated_at" = '2010-07-01 07:18:31.979728' WHERE ("users"."id" = 1)
+Rendered posts/show.html.erb within layouts/application (197.8ms)
+Completed 200 OK in 239ms (Views: 203.4ms | ActiveRecord: 3.2ms)
