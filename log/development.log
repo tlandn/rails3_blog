@@ -5870,3 +5870,14 @@ Started GET "/posts" for 127.0.0.1 at Thu Jul 01 13:20:15 +0700 2010
   [1m[35mSQL (0.9ms)[0m  UPDATE "users" SET "last_request_at" = '2010-07-01 06:20:16.109980', "updated_at" = '2010-07-01 06:20:16.111196' WHERE ("users"."id" = 1)
 Rendered posts/index.html.erb within layouts/application (331.8ms)
 Completed 200 OK in 374ms (Views: 338.4ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Thu Jul 01 13:52:11 +0700 2010
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (2.6ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mSQL (0.6ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-01 06:42:11.387272')[0m
+  [1m[35mUser Load (141.8ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  UPDATE "users" SET "last_request_at" = '2010-07-01 06:52:11.597272', "updated_at" = '2010-07-01 06:52:11.598592' WHERE ("users"."id" = 1)
+Rendered posts/index.html.erb within layouts/application (340.6ms)
+Completed 200 OK in 412ms (Views: 332.3ms | ActiveRecord: 29.2ms)
