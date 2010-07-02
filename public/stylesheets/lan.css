@@ -3,5 +3,30 @@
 }
 
 a:link, a:visited, a:active {
-  text-decoration: none;
+    text-decoration: none;
 }
+
+.post_headline {
+    background: url("http://www1.blogblog.com/harbor/icon_lighthouse.gif") no-repeat scroll left 0.15em transparent;
+    color: #336688;
+    display: block;
+    font-weight: normal;
+    padding-left: 20px;
+    text-decoration: none;
+    line-height:1.4em;
+    font:100% Georgia,Serif;
+    text-align:left;
+    font-size:12pt;
+}
+
+
+.post_footer {
+    color:#999999;
+    font-size:78%;
+    letter-spacing:0.1em;
+    line-height:1.4em;
+    font:100% Georgia,Serif;
+    font-size:12pt;
+}
+
+

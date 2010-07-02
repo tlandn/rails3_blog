@@ -9549,3 +9549,441 @@ Started GET "/posts" for 127.0.0.1 at Fri Jul 02 13:39:34 +0700 2010
   [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-02 06:29:34.621688')[0m
 Rendered posts/index.html.erb within layouts/application (397.6ms)
 Completed 200 OK in 448ms (Views: 401.4ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Fri Jul 02 16:13:50 +0700 2010
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (33.3ms)[0m  UPDATE "users" SET "last_request_at" = '2010-07-02 09:13:50.974450', "updated_at" = '2010-07-02 09:13:50.975540' WHERE ("users"."id" = 2)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-02 09:03:51.081961')
+Rendered posts/index.html.erb within layouts/application (385.6ms)
+Completed 200 OK in 431ms (Views: 359.4ms | ActiveRecord: 36.7ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Jul 02 16:14:25 +0700 2010
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2010-07-02 09:14:26.236744', "updated_at" = '2010-07-02 09:14:26.237791' WHERE ("users"."id" = 2)[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-02 09:04:26.299768')[0m
+Rendered posts/index.html.erb within layouts/application (285.7ms)
+Completed 200 OK in 325ms (Views: 289.9ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Jul 02 16:50:35 +0700 2010
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/index.html.erb within layouts/application (29.7ms)
+Completed   in 175ms
+
+ActionView::Template::Error (undefined method `|' for "":String):
+    8:     <%= raw(post.content) %>
+    9:   </div>
+    10:   <div class="post_footer">
+    11:     <%= authorname(post) | post.created_at%>
+    12:   </div>
+    13: 
+    14: 
+/home/lantra/work/rails3_blog/app/views/posts/index.html.erb:11:in `_render_template__3905894__613275348_0'
+  /home/lantra/work/rails3_blog/app/views/posts/index.html.erb:3:in `each'
+  /home/lantra/work/rails3_blog/app/views/posts/index.html.erb:3:in `_render_template__3905894__613275348_0'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_view/template.rb:134:in `send'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_view/template.rb:134:in `render'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.0.beta4/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.0.beta4/lib/active_support/notifications.rb:48:in `__send__'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.0.beta4/lib/active_support/notifications.rb:48:in `instrument'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_view/template.rb:126:in `render'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_view/render/rendering.rb:58:in `_render_template'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.0.beta4/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.0.beta4/lib/active_support/notifications.rb:48:in `__send__'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.0.beta4/lib/active_support/notifications.rb:48:in `instrument'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_view/render/rendering.rb:55:in `_render_template'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_view/render/rendering.rb:25:in `render'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/abstract_controller/rendering.rb:114:in `_render_template'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/abstract_controller/rendering.rb:108:in `render_to_body'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/abstract_controller/rendering.rb:101:in `render_to_string'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/abstract_controller/rendering.rb:92:in `render'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/rendering.rb:17:in `render'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:39:in `render'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.0.beta4/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  /usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.0.beta4/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:39:in `render'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:77:in `cleanup_view_runtime'
+  /usr/lib/ruby/gems/1.8/gems/activerecord-3.0.0.beta4/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:38:in `render'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/abstract_controller/base.rb:145:in `process_action'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/rendering.rb:11:in `process_action'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/abstract_controller/callbacks.rb:18:in `process_action'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:438:in `_run__84203013__process_action__199225275__callbacks'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:408:in `send'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:408:in `_run_process_action_callbacks'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:88:in `send'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:88:in `run_callbacks'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.0.beta4/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.0.beta4/lib/active_support/notifications.rb:48:in `__send__'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.0.beta4/lib/active_support/notifications.rb:48:in `instrument'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:28:in `process_action'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/rescue.rb:8:in `process_action'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/abstract_controller/base.rb:114:in `process'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/abstract_controller/rendering.rb:40:in `process'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_controller/metal.rb:126:in `dispatch'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_controller/metal.rb:166
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_dispatch/routing/route_set.rb:27:in `call'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_dispatch/routing/route_set.rb:27:in `call'
+  /usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.6/lib/rack/mount/route_set.rb:148:in `call'
+  /usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.6/lib/rack/mount/code_generation.rb:89:in `recognize'
+  /usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.6/lib/rack/mount/code_generation.rb:66:in `optimized_each'
+  /usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.6/lib/rack/mount/code_generation.rb:88:in `recognize'
+  /usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.6/lib/rack/mount/route_set.rb:139:in `call'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_dispatch/routing/route_set.rb:457:in `call'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/head.rb:14:in `call'
+  /usr/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/flash.rb:177:in `call'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/session/abstract_store.rb:106:in `call'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/cookies.rb:235:in `call'
+  /home/lantra/.bundle/ruby/1.8/bundler/gems/rails-ckeditor-3e670b66bfac356727eb597e00fb91abb1dc88f6-rails3/lib/ckeditor/middleware.rb:15:in `call'
+  /usr/lib/ruby/gems/1.8/gems/activerecord-3.0.0.beta4/lib/active_record/query_cache.rb:31:in `call'
+  /usr/lib/ruby/gems/1.8/gems/activerecord-3.0.0.beta4/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  /usr/lib/ruby/gems/1.8/gems/activerecord-3.0.0.beta4/lib/active_record/query_cache.rb:11:in `cache'
+  /usr/lib/ruby/gems/1.8/gems/activerecord-3.0.0.beta4/lib/active_record/query_cache.rb:30:in `call'
+  /usr/lib/ruby/gems/1.8/gems/activerecord-3.0.0.beta4/lib/active_record/connection_adapters/abstract/connection_pool.rb:365:in `call'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:414:in `_run_call_callbacks'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:88:in `send'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:88:in `run_callbacks'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  /usr/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/sendfile.rb:105:in `call'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/show_exceptions.rb:48:in `call'
+  /usr/lib/ruby/gems/1.8/gems/railties-3.0.0.beta4/lib/rails/rack/logger.rb:14:in `call'
+  /usr/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/runtime.rb:17:in `call'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-3.0.0.beta4/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  /usr/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+  /usr/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+  /usr/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+  /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/static.rb:30:in `call'
+  /usr/lib/ruby/gems/1.8/gems/railties-3.0.0.beta4/lib/rails/application.rb:145:in `call'
+  /usr/lib/ruby/gems/1.8/gems/railties-3.0.0.beta4/lib/rails/application.rb:81:in `send'
+  /usr/lib/ruby/gems/1.8/gems/railties-3.0.0.beta4/lib/rails/application.rb:81:in `method_missing'
+  /usr/lib/ruby/gems/1.8/gems/railties-3.0.0.beta4/lib/rails/rack/log_tailer.rb:15:in `call'
+  /usr/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+  /usr/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/chunked.rb:15:in `call'
+  /usr/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/mongrel.rb:67:in `process'
+  /usr/local/lib/site_ruby/1.8/mongrel.rb:165:in `process_client'
+  /usr/local/lib/site_ruby/1.8/mongrel.rb:164:in `each'
+  /usr/local/lib/site_ruby/1.8/mongrel.rb:164:in `process_client'
+  /usr/local/lib/site_ruby/1.8/mongrel.rb:291:in `run'
+  /usr/local/lib/site_ruby/1.8/mongrel.rb:291:in `initialize'
+  /usr/local/lib/site_ruby/1.8/mongrel.rb:291:in `new'
+  /usr/local/lib/site_ruby/1.8/mongrel.rb:291:in `run'
+  /usr/local/lib/site_ruby/1.8/mongrel.rb:274:in `initialize'
+  /usr/local/lib/site_ruby/1.8/mongrel.rb:274:in `new'
+  /usr/local/lib/site_ruby/1.8/mongrel.rb:274:in `run'
+  /usr/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/mongrel.rb:38:in `run'
+  /usr/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/server.rb:155:in `start'
+  /usr/lib/ruby/gems/1.8/gems/railties-3.0.0.beta4/lib/rails/commands/server.rb:62:in `start'
+  /usr/lib/ruby/gems/1.8/gems/railties-3.0.0.beta4/lib/rails/commands.rb:30
+  /usr/lib/ruby/gems/1.8/gems/railties-3.0.0.beta4/lib/rails/commands.rb:27:in `tap'
+  /usr/lib/ruby/gems/1.8/gems/railties-3.0.0.beta4/lib/rails/commands.rb:27
+  script/rails:6:in `require'
+  script/rails:6
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.7ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (22.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (33.9ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Jul 02 16:51:04 +0700 2010
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2010-07-02 09:51:04.629466', "updated_at" = '2010-07-02 09:51:04.630621' WHERE ("users"."id" = 2)
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-02 09:41:04.693927')
+Rendered posts/index.html.erb within layouts/application (321.2ms)
+Completed 200 OK in 358ms (Views: 324.1ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Jul 02 16:52:05 +0700 2010
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2010-07-02 09:52:06.241598', "updated_at" = '2010-07-02 09:52:06.242784' WHERE ("users"."id" = 2)[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-02 09:42:06.308428')[0m
+Rendered posts/index.html.erb within layouts/application (286.0ms)
+Completed 200 OK in 329ms (Views: 289.7ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Jul 02 16:52:26 +0700 2010
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2010-07-02 09:52:27.078766', "updated_at" = '2010-07-02 09:52:27.079813' WHERE ("users"."id" = 2)
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-02 09:42:27.147150')
+Rendered posts/index.html.erb within layouts/application (290.6ms)
+Completed 200 OK in 329ms (Views: 294.5ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Jul 02 16:53:29 +0700 2010
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2010-07-02 09:53:30.250861', "updated_at" = '2010-07-02 09:53:30.251934' WHERE ("users"."id" = 2)[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-02 09:43:30.313346')[0m
+Rendered posts/index.html.erb within layouts/application (282.2ms)
+Completed 200 OK in 320ms (Views: 285.9ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Jul 02 16:54:06 +0700 2010
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2010-07-02 09:54:07.331921', "updated_at" = '2010-07-02 09:54:07.332909' WHERE ("users"."id" = 2)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-02 09:44:07.399079')
+Rendered posts/index.html.erb within layouts/application (188.7ms)
+Completed 200 OK in 326ms (Views: 192.6ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Jul 02 16:54:20 +0700 2010
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (1.2ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2010-07-02 09:54:20.885081', "updated_at" = '2010-07-02 09:54:20.886120' WHERE ("users"."id" = 2)[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-02 09:44:20.945463')[0m
+Rendered posts/index.html.erb within layouts/application (179.1ms)
+Completed 200 OK in 219ms (Views: 183.3ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Jul 02 16:54:47 +0700 2010
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2010-07-02 09:54:48.027690', "updated_at" = '2010-07-02 09:54:48.028668' WHERE ("users"."id" = 2)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-02 09:44:48.087314')
+Rendered posts/index.html.erb within layouts/application (173.9ms)
+Completed 200 OK in 213ms (Views: 177.9ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Jul 02 16:54:56 +0700 2010
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2010-07-02 09:54:56.646290', "updated_at" = '2010-07-02 09:54:56.647332' WHERE ("users"."id" = 2)[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-02 09:44:56.708045')[0m
+Rendered posts/index.html.erb within layouts/application (175.7ms)
+Completed 200 OK in 214ms (Views: 179.8ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Jul 02 16:57:34 +0700 2010
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2010-07-02 09:57:34.981180', "updated_at" = '2010-07-02 09:57:34.982132' WHERE ("users"."id" = 2)
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  SELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-02 09:47:35.153416')
+Rendered posts/index.html.erb within layouts/application (287.6ms)
+Completed 200 OK in 325ms (Views: 291.2ms | ActiveRecord: 11.5ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Jul 02 16:58:57 +0700 2010
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2010-07-02 09:58:57.902801', "updated_at" = '2010-07-02 09:58:57.903832' WHERE ("users"."id" = 2)[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-02 09:48:58.090816')[0m
+Rendered posts/index.html.erb within layouts/application (301.5ms)
+Completed 200 OK in 339ms (Views: 305.2ms | ActiveRecord: 18.2ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Jul 02 17:00:07 +0700 2010
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.9ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2010-07-02 10:00:08.048160', "updated_at" = '2010-07-02 10:00:08.049280' WHERE ("users"."id" = 2)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-02 09:50:08.118738')
+Rendered posts/index.html.erb within layouts/application (301.2ms)
+Completed 200 OK in 338ms (Views: 304.8ms | ActiveRecord: 17.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Jul 02 17:00:10 +0700 2010
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2010-07-02 10:00:10.734802', "updated_at" = '2010-07-02 10:00:10.735846' WHERE ("users"."id" = 2)[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-02 09:50:10.802019')[0m
+Rendered posts/index.html.erb within layouts/application (306.5ms)
+Completed 200 OK in 344ms (Views: 310.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Jul 02 17:02:17 +0700 2010
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2010-07-02 10:02:17.569500', "updated_at" = '2010-07-02 10:02:17.570616' WHERE ("users"."id" = 2)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  SELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-02 09:52:17.631229')
+Rendered posts/index.html.erb within layouts/application (304.7ms)
+Completed 200 OK in 342ms (Views: 308.4ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Jul 02 17:02:46 +0700 2010
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mSQL (1.2ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2010-07-02 10:02:46.578570', "updated_at" = '2010-07-02 10:02:46.579644' WHERE ("users"."id" = 2)[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-02 09:52:46.644308')[0m
+Rendered posts/index.html.erb within layouts/application (313.5ms)
+Completed 200 OK in 350ms (Views: 317.0ms | ActiveRecord: 11.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Jul 02 17:03:02 +0700 2010
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (1.1ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  UPDATE "users" SET "last_request_at" = '2010-07-02 10:03:02.917100', "updated_at" = '2010-07-02 10:03:02.918076' WHERE ("users"."id" = 2)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) AS count_id FROM "users" WHERE (last_request_at > '2010-07-02 09:53:02.993371')
+Rendered posts/index.html.erb within layouts/application (213.0ms)
+Completed 200 OK in 404ms (Views: 221.4ms | ActiveRecord: 11.2ms)
