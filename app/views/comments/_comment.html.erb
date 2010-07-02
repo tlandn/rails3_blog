@@ -1,5 +1,5 @@
 <p>
-  <b>Commenter:</b>
+  <b>Comment author:</b>
   <%= comment.commenter %>
 </p>
 <p>
@@ -7,5 +7,11 @@
   <%= comment.body %>
 </p>
 <p>
-  <%= link_to 'Destroy Comment', [comment.post, comment], :confirm => 'Are you sure?', :method => :delete %>
+  <b>Created at:</b>
+  <%= comment.created_at %>
 </p>
+<% if can_destroy_comment(comment.post) %>
+  <p>
+    <%= link_to 'Destroy Comment', [comment.post, comment], :confirm => 'Are you sure?', :method => :delete %>
+  </p>
+<% end %>

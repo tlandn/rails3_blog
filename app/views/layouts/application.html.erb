@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Rails3Blog</title>
-    <%= stylesheet_link_tag :all %>
+    <%= stylesheet_link_tag :all, 'lan'  %>
     <%= javascript_include_tag :defaults %>
     <%= csrf_meta_tag %>
   </head>
@@ -13,23 +13,30 @@
     <br />
     <br />
 
+    <h1><center>
+        <a href="/">Rails 3 Blog Example</a>
 
-    <% if !current_user %>
-      <%= link_to "Register", new_account_path %> |
-      <%= link_to "Log In", new_user_session_path %> |
-    <% else %>
-      <b><%= current_user.login %> logged in</b> | 
-      <%= link_to "My Account", account_path %> |
-      <%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %> |
-    <% end %>
+     </center></h1>
 
-    <%= link_to "Posts", posts_path %>
+    <div class="menu">
+      <% if !current_user %>
+        <%= link_to "Register", new_account_path %> |
+        <%= link_to "Log In", new_user_session_path %> |
+      <% else %>
+        <b><%= current_user.login %> logged in</b> |
+        <%= link_to "My Account", account_path %> |
+        <%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %> |
+        <%= link_to "Posts", posts_path %> |
+      <% end %>
+      
+      <%= link_to "Home", root_path %> |
+    </div>
 
     <p style="color: green">
-    <!--  
-    <%= flash[:notice] %></p>
-    -->
-    <%= notice %></p>
+      <!--
+      <%= flash[:notice] %></p>
+      -->
+      <%= notice %></p>
 
     <%= yield  %>
 

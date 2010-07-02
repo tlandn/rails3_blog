@@ -4,22 +4,34 @@
   <tr>
     <th>Title</th>
     <th>Content</th>
+    <th>Author</th>
+    <th>Creation Date</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
-<% @posts.each do |post| %>
-  <tr>
-    <td><%= post.title %></td>
-    <td><%= raw(post.content) %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.title %></td>
+      <td><%= raw(post.content) %></td>
+      <td><%= authorname(post) %></td>
+      <td><%= post.created_at %></td>
+
+      <% if current_user %>
+        <td><%= link_to 'Show', post %></td>
+      <% end %>
+      <% if owner(post) %>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% end %>
+
+    </tr>
+  <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Post', new_post_path %>
+<% if current_user %>
+  <%= link_to 'New Post', new_post_path %>
+<% end %>
