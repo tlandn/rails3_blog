@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  #before_filter :require_no_user, :only => [:new, :create]
+  before_filter :require_user, :only => [:new, :edit, :update, :destroy]
+    
   # GET /posts
   # GET /posts.xml
   def index
